@@ -1,4 +1,5 @@
 import HomePage from '../3.pages/Home'
+import './index.scss'
 
 class App {
 	#homePage
