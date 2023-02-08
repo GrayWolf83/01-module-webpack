@@ -1,0 +1,14 @@
+.sounds-block__item {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px;
+    z-index: 2;
+    cursor: pointer;
+}
