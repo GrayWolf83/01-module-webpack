@@ -1,4 +1,4 @@
-import HomePage from '../3.pages/Home'
+import { HomePage } from '@src/pages'
 import './index.scss'
 
 class App {

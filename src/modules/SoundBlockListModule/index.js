@@ -1,5 +1,5 @@
-import SoundBlockFeature from '@features/SoundBlockFeature'
-import { AppIcon, Utils, data } from '@shared'
+import { SoundBlockFeature } from '@src/features'
+import { AppIcon, Utils, data } from '@src/shared'
 import './styles.scss'
 
 class SoundBlockListModule {

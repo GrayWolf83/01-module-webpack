@@ -1,7 +1,7 @@
-import SoundBlockListModule from '@modules/SoundBlockListModule'
-import { Utils } from '@shared'
-import { AudioPlayer } from '@entities'
-import ChangeVolumeFeature from '@features/ChangeVolumeFeature'
+import { SoundBlockListModule } from '@src/modules'
+import { Utils } from '@src/shared'
+import { AudioPlayer } from '@src/entities'
+import { ChangeVolumeFeature } from '@src/features'
 import './styles.scss'
 
 class HomePage {
