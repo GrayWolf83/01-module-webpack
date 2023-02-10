@@ -1,4 +1,4 @@
-import Utils from '@shared/Utils'
+import { Utils } from '@src/shared'
 import './styles.scss'
 
 class SoundBlock {

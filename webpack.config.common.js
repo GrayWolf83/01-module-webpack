@@ -14,13 +14,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			'@public': path.resolve(__dirname, 'public'),
-			'@app': path.resolve(__dirname, 'src/1.app'),
-			'@processes': path.resolve(__dirname, 'src/2.processes'),
-			'@pages': path.resolve(__dirname, 'src/3.pages'),
-			'@modules': path.resolve(__dirname, 'src/4.modules'),
-			'@features': path.resolve(__dirname, 'src/5.features'),
-			'@entities': path.resolve(__dirname, 'src/6.entities'),
-			'@shared': path.resolve(__dirname, 'src/7.shared'),
+			'@src': path.resolve(__dirname, 'src'),
 		},
 	},
 	plugins: [

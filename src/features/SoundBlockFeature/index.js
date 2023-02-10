@@ -1,4 +1,4 @@
-import SoundBlock from '@entities/SoundBlock'
+import { SoundBlock } from '@src/entities'
 
 class SoundBlockFeature {
 	#soundBlock

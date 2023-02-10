@@ -1,4 +1,4 @@
-import InputVolume from '@entities/InputVolume'
+import { InputVolume } from '@src/entities'
 
 class ChangeVolumeFeature {
 	#inputVolume
