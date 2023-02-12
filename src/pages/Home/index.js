@@ -19,14 +19,12 @@ class HomePage {
 			className: 'title',
 			textContent: 'Weather sounds',
 		})
-		this.#player = new AudioPlayer()
-		this.#SoundBlockListModule = new SoundBlockListModule(this.#player)
-		this.#changeVolume = new ChangeVolumeFeature(this.#player)
+		this.#SoundBlockListModule = new SoundBlockListModule(this.#page)
+		this.#changeVolume = new ChangeVolumeFeature()
 
 		this.#page.append(
 			this.#title,
 			this.#SoundBlockListModule.toHtml(),
-			this.#player.toHtml(),
 			this.#changeVolume.toHtml(),
 		)
 	}
