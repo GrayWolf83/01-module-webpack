@@ -1,5 +1,6 @@
 import { SoundBlock, Audio } from '@src/entities'
-import { data } from '@src/shared'
+import { data, AppIcon } from '@src/shared'
+import iconPause from '@src/shared/assets/icons/pause.svg'
 
 class SoundBlockFeature {
 	#soundBlock
@@ -9,11 +10,23 @@ class SoundBlockFeature {
 
 		this.#soundBlock.toHtml().onclick = () => {
 			const current = data.find((item) => item.bg === bg)
+			const soundBlocks = document.querySelectorAll('.sounds-block__item')
+			soundBlocks.forEach((item) => {
+				const dataItem = data.find((itm) =>
+					item.style.backgroundImage.includes(itm.bg),
+				)
+				item.innerHTML = ''
+				item.append(AppIcon(dataItem.icon))
+			})
 			Object.keys(Audio).forEach((item) => {
 				if (current.name === item) {
-					Audio[item].paused
-						? Audio[item].play()
-						: Audio[item].pause()
+					if (Audio[item].paused) {
+						Audio[item].play()
+						this.#soundBlock.toHtml().innerHTML = ''
+						this.#soundBlock.toHtml().append(AppIcon(iconPause))
+					} else {
+						Audio[item].pause()
+					}
 				} else {
 					Audio[item].pause()
 				}
