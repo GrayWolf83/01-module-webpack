@@ -5,7 +5,7 @@ import './styles.scss'
 class SoundBlockListModule {
 	#SoundBlockList
 
-	constructor(player) {
+	constructor(page) {
 		this.#SoundBlockList = Utils.createElement('div', {
 			className: 'sounds-block',
 		})
@@ -15,8 +15,7 @@ class SoundBlockListModule {
 				new SoundBlockFeature(
 					item.bg,
 					AppIcon(item.icon),
-					item.sound,
-					player,
+					page,
 				).toHtml(),
 			)
 		})

@@ -27,6 +27,10 @@ module.exports = {
 					from: path.resolve(__dirname, 'public/favicon.png'),
 					to: path.resolve(__dirname, 'dist'),
 				},
+				{
+					from: path.resolve(__dirname, 'src/shared/assets'),
+					to: path.resolve(__dirname, 'dist/assets'),
+				},
 			],
 		}),
 		new MiniCssExtractPlugin(),
@@ -46,40 +50,28 @@ module.exports = {
 				test: /\.(png|jpg|jpeg|gif)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: path.join(
-						'assets/images',
-						'[name].[contenthash][ext]',
-					),
+					filename: path.join('assets/images', '[name][ext]'),
 				},
 			},
 			{
 				test: /\.svg$/,
 				type: 'asset/resource',
 				generator: {
-					filename: path.join(
-						'assets/icons',
-						'[name].[contenthash][ext]',
-					),
+					filename: path.join('assets/icons', '[name][ext]'),
 				},
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: path.join(
-						'assets/fonts',
-						'[name].[contenthash][ext]',
-					),
+					filename: path.join('assets/fonts', '[name][ext]'),
 				},
 			},
 			{
 				test: /\.(mp3)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: path.join(
-						'assets/sounds',
-						'[name].[contenthash][ext]',
-					),
+					filename: path.join('assets/sounds', '[name][ext]'),
 				},
 			},
 		],

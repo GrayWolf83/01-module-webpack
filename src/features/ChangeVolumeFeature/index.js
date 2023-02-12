@@ -1,12 +1,17 @@
-import { InputVolume } from '@src/entities'
+import { InputVolume, Audio } from '@src/entities'
 
 class ChangeVolumeFeature {
 	#inputVolume
 
-	constructor(player) {
+	constructor() {
 		this.#inputVolume = new InputVolume()
+		Object.keys(Audio).forEach((item) => {
+			Audio[item].volume = 0.5
+		})
 		this.#inputVolume.toHtml().oninput = (e) =>
-			(player.setVolume = e.target.value)
+			Object.keys(Audio).forEach((item) => {
+				Audio[item].volume = e.target.value
+			})
 	}
 
 	toHtml() {
