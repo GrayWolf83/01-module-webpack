@@ -1,4 +1,4 @@
-import { SoundBlock, Audio } from '@src/entities'
+import { SoundBlock, AudioPlayers } from '@src/entities'
 import { data, AppIcon } from '@src/shared'
 import iconPause from '@src/shared/assets/icons/pause.svg'
 import { Component } from '@src/shared/models'
@@ -19,17 +19,17 @@ class SoundBlockFeature implements Component {
 				item.innerHTML = ''
 				item.append(AppIcon(dataItem.icon))
 			})
-			Object.keys(Audio).forEach((item) => {
+			Object.keys(AudioPlayers).forEach((item) => {
 				if (current.name === item) {
-					if (Audio[item].paused) {
-						Audio[item].play()
+					if (AudioPlayers[item].paused) {
+						AudioPlayers[item].play()
 						this.soundBlock.toHtml().innerHTML = ''
 						this.soundBlock.toHtml().append(AppIcon(iconPause))
 					} else {
-						Audio[item].pause()
+						AudioPlayers[item].pause()
 					}
 				} else {
-					Audio[item].pause()
+					AudioPlayers[item].pause()
 				}
 			})
 			page.style.backgroundImage = `url(${bg})`
