@@ -1,17 +1,18 @@
 import { SoundBlock, Audio } from '@src/entities'
 import { data, AppIcon } from '@src/shared'
 import iconPause from '@src/shared/assets/icons/pause.svg'
+import { Component } from '@src/shared/models'
 
-class SoundBlockFeature {
-	#soundBlock
+class SoundBlockFeature implements Component {
+	private soundBlock
 
-	constructor(bg, icon, page) {
-		this.#soundBlock = new SoundBlock(bg, icon)
+	constructor(bg: string, icon: HTMLElement, page: HTMLElement) {
+		this.soundBlock = new SoundBlock(bg, icon)
 
-		this.#soundBlock.toHtml().onclick = () => {
+		this.soundBlock.toHtml().onclick = () => {
 			const current = data.find((item) => item.bg === bg)
 			const soundBlocks = document.querySelectorAll('.sounds-block__item')
-			soundBlocks.forEach((item) => {
+			soundBlocks.forEach((item: HTMLElement) => {
 				const dataItem = data.find((itm) =>
 					item.style.backgroundImage.includes(itm.bg),
 				)
@@ -22,8 +23,8 @@ class SoundBlockFeature {
 				if (current.name === item) {
 					if (Audio[item].paused) {
 						Audio[item].play()
-						this.#soundBlock.toHtml().innerHTML = ''
-						this.#soundBlock.toHtml().append(AppIcon(iconPause))
+						this.soundBlock.toHtml().innerHTML = ''
+						this.soundBlock.toHtml().append(AppIcon(iconPause))
 					} else {
 						Audio[item].pause()
 					}
@@ -35,8 +36,8 @@ class SoundBlockFeature {
 		}
 	}
 
-	toHtml() {
-		return this.#soundBlock.toHtml()
+	toHtml(): HTMLElement {
+		return this.soundBlock.toHtml()
 	}
 }
 
