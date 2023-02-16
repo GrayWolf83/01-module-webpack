@@ -5,13 +5,14 @@ const path = require('path')
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
-	entry: './index.js',
+	entry: './index.ts',
 	output: {
 		filename: '[name].[contenthash].js',
 		path: path.resolve(__dirname, 'dist'),
 		clean: true,
 	},
 	resolve: {
+		extensions: ['.ts', '.js'],
 		alias: {
 			'@public': path.resolve(__dirname, 'public'),
 			'@src': path.resolve(__dirname, 'src'),
@@ -33,6 +34,11 @@ module.exports = {
 	],
 	module: {
 		rules: [
+			{
+				test: /\.(ts|js)$/,
+				use: ['ts-loader'],
+				exclude: /node_modules/,
+			},
 			{
 				test: /\.(scss|css)$/,
 				use: [
