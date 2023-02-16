@@ -1,7 +1,9 @@
 import data from '@src/shared/Data'
-import { Audio } from '@src/shared/models'
+import { IAudio } from '@src/shared/models'
 
-export default data.reduce(
+const AudioPlayers: IAudio = data.reduce(
 	(acc, item) => Object.assign(acc, { [item.name]: new Audio(item.sound) }),
 	{},
-) as Audio
+)
+
+export default AudioPlayers
