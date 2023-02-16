@@ -1,21 +1,22 @@
 import { InputVolume, Audio } from '@src/entities'
+import { Component } from '@src/shared/models'
 
-class ChangeVolumeFeature {
-	#inputVolume
+class ChangeVolumeFeature implements Component {
+	private inputVolume
 
 	constructor() {
-		this.#inputVolume = new InputVolume()
+		this.inputVolume = new InputVolume()
 		Object.keys(Audio).forEach((item) => {
 			Audio[item].volume = 0.5
 		})
-		this.#inputVolume.toHtml().oninput = (e) =>
+		this.inputVolume.toHtml().oninput = (e: any) =>
 			Object.keys(Audio).forEach((item) => {
 				Audio[item].volume = e.target.value
 			})
 	}
 
-	toHtml() {
-		return this.#inputVolume.toHtml()
+	toHtml(): HTMLElement {
+		return this.inputVolume.toHtml()
 	}
 }
 
