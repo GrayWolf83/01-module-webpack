@@ -2,6 +2,7 @@ function createElement(
 	tagName: string,
 	attrs?: { [key: string]: string | number | object },
 ): HTMLElement {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const elem: any = document.createElement(tagName)
 
 	if (attrs && elem) {
